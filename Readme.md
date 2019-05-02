@@ -1,6 +1,6 @@
 # Личный проект «YetiCave»
 
-* Студент: [Неопознанный енот](https://up.htmlacademy.ru/php/9/user/388623).
+* Студент: [Ирина Пинчук](https://up.htmlacademy.ru/php/9/user/388623).
 * Наставник: `Неизвестно`.
 
 ---
