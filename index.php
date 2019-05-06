@@ -43,8 +43,7 @@ $lots = [
         "picture"   => "img/lot-6.jpg"
     ]
 ];
-$listcount = count($categories);
-$i = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -101,11 +100,11 @@ $i = 0;
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
-            <?php while ($i < $listcount): ?>
+            <?php foreach ($categories as $cat): ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?=$categories[$i]; $i++; ?></a>
+                <a class="promo__link" href="pages/all-lots.html"><?=$cat ?></a>
             </li>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
@@ -114,18 +113,18 @@ $i = 0;
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
-            <?php foreach ($lots as $key => $val): ?>
+            <?php foreach ($lots as $lot): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="<?=$val['picture']; ?>" width="350" height="260" alt="">
+                    <img src="<?=$lot['picture']; ?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category"><?=$val['category']; ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?=$val['title']; ?></a></h3>
+                    <span class="lot__category"><?=$lot['category']; ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?=$lot['title']; ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$val['price']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=$lot['price']; ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
                             12:25
@@ -143,11 +142,11 @@ $i = 0;
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php while ($i < $listcount): ?>
+            <?php foreach ($categories as $cat): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$categories[$i];$i++; ?></a>
+                <a href="pages/all-lots.html"><?=$cat ?></a>
             </li>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
