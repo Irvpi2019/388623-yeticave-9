@@ -44,6 +44,16 @@ $lots = [
     ]
 ];
 
+// Пишем первую функцию
+
+function sumform($price) {
+        $price = ceil($price);
+        if ($price >= 1000) {
+            $price = number_format($price, 0, '' ,' ').' ₽';
+        }
+        return $price;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +134,7 @@ $lots = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$lot['price']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=sumform($lot['price']); ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
                             12:25
