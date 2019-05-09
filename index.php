@@ -46,28 +46,27 @@ $lots = [
 ];
 
 // Пишем первую функцию
-
 function format_price($price) {
-        $price = ceil($price);
-        if ($price >= 1000) {
-            $price = number_format($price, 0, '' ,' ').' ₽';
-        }
-        return $price;
+    $price = ceil($price);
+    if ($price >= 1000) {
+        $price = number_format($price, 0, '' ,' ').' ₽';
     }
+    return $price;
+}
 
 
+$page_content = include_template('index.php', [
+    'categories' => $categories,
+    'lots' => $lots
+]);
+$layout_content = include_template('layout.php', [
+    'content' => $page_content,
+    'categories' => $categories,
+    'is_auth' => $is_auth,
+    'user_name' => $user_name,
+    'title' => 'Главная'
+]);
 
-    $page_content = include_template('index.php', [
-        'categories' => $categories,
-        'lots' => $lots
-    ]);
-    $layout_content = include_template('layout.php', [
-        'content' => $page_content,
-        'categories' => $categories,
-        'is_auth' => $is_auth,
-        'user_name' => $user_name,
-        'title' => 'Главная'
-    ]);
 
-  print($layout_content);
-  ?>
+print($layout_content);
+?>
