@@ -55,9 +55,11 @@ function format_price($price) {
 }
 
 
+
 $page_content = include_template('index.php', [
     'categories' => $categories,
     'lots' => $lots
+
 ]);
 $layout_content = include_template('layout.php', [
     'content' => $page_content,

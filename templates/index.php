@@ -1,9 +1,3 @@
-<?php
-$is_auth = rand(0, 1);
-$user_name = 'Ирина Пинчук'; // укажите здесь ваше имя
-
-?>
-
 
 <main class="container">
     <section class="promo">
@@ -37,8 +31,24 @@ $user_name = 'Ирина Пинчук'; // укажите здесь ваше и
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=format_price($lot['price']); ?><b class="rub">р</b></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:25
+                        <div class="lot__timer timer
+
+                            <?php
+                              date_default_timezone_set("Europe/Moscow");
+                              $ts_midnight = strtotime('tomorrow');
+                              $sec_to_midnight = $ts_midnight - time();
+                              $hours = floor($sec_to_midnight/3600);
+                              $minutes = floor(($sec_to_midnight % 3600) / 60);
+
+                                 if ($minutes < 10) {
+                                  $minutes = '0' . $minutes;
+                                 }
+                              $time_to_midnight = $hours . ':' . $minutes;
+
+                                 if ($sec_to_midnight <= 3600) {
+                                  echo ' timer--finishing';
+                                 }?>">
+                                  <?=$time_to_midnight; ?>
                         </div>
                     </div>
                 </div>
