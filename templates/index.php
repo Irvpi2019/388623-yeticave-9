@@ -1,9 +1,6 @@
 <?php
-$is_auth = rand(0, 1);
-$user_name = 'Ирина Пинчук'; // укажите здесь ваше имя
-
+require_once('functions.php');
 ?>
-
 
 <main class="container">
     <section class="promo">
@@ -37,8 +34,9 @@ $user_name = 'Ирина Пинчук'; // укажите здесь ваше и
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=format_price($lot['price']); ?><b class="rub">р</b></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:25
+                        <div class="lot__timer timer <?=is_last_hour('tomorrow') ? "timer--finishing" : '' ?>">
+                               <?=get_time_to_timer("tomorrow") ?>
+
                         </div>
                     </div>
                 </div>
