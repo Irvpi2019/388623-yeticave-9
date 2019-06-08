@@ -53,11 +53,23 @@
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categories as $cat): ?>
+            <?php
+            $con = mysqli_connect("localhost", "root", "","yeticave");
+            mysqli_set_charset($con, "utf8");
+            if ($con == false) {
+                print("Ошибка подключения: " . mysqli_connect_error());
+            }
+            else {
+            $sql = "SELECT id, name FROM categories ORDER BY id";
+            $result = mysqli_query($con, $sql);
+            $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            foreach ($categories as $cat): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$cat ?></a>
+                <a href="pages/all-lots.html"><?=$cat['name'] ?></a>
             </li>
-            <?php endforeach; ?>
+            <?php endforeach;
+                 } ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">

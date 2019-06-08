@@ -40,7 +40,7 @@ CREATE TABLE lots (
 	rate_step	INT NOT NULL,
 	cat_id		INT NOT NULL,
 	author_id	INT NOT NULL,
-	winner_id	INT NOT NULL,
+	winner_id	INT,
 	FOREIGN KEY (author_id) REFERENCES users(id),
 	FOREIGN KEY (winner_id) REFERENCES users(id),
 	FOREIGN KEY (cat_id) REFERENCES categories(id),
