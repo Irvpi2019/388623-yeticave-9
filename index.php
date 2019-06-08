@@ -47,6 +47,19 @@ $lots = [
     ]
 ];
 
+/*
+$con = mysqli_connect("localhost", "root", "","yeticave");
+mysqli_set_charset($con, "utf8");
+
+if ($con == false) {
+    //$error = mysqli_connect_error();
+    //$content = include_template('error.php', ['error' => $error]);
+print("Ошибка подключения: " . mysqli_connect_error());
+
+}
+else {
+    print("Соединение установлено");
+}*/
 // Пишем первую функцию
 function format_price($price) {
     $price = ceil($price);
@@ -73,4 +86,6 @@ $layout_content = include_template('layout.php', [
 
 
 print($layout_content);
+
+
 ?>
